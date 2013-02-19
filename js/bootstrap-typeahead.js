@@ -205,20 +205,22 @@
         case 13: // enter
         case 27: // escape
           e.preventDefault()
+          e.stopPropagation()
           break
 
         case 38: // up arrow
           e.preventDefault()
+          e.stopPropagation()
           this.prev()
           break
 
         case 40: // down arrow
           e.preventDefault()
+          e.stopPropagation()
           this.next()
           break
       }
 
-      e.stopPropagation()
     }
 
   , keydown: function (e) {
@@ -238,16 +240,19 @@
         case 16: // shift
         case 17: // ctrl
         case 18: // alt
+          e.stopPropagation()
           break
 
         case 9: // tab
         case 13: // enter
           if (!this.shown) return
+          e.stopPropagation()
           this.select()
           break
 
         case 27: // escape
           if (!this.shown) return
+          e.stopPropagation()
           this.hide()
           break
 
@@ -255,7 +260,6 @@
           this.lookup()
       }
 
-      e.stopPropagation()
       e.preventDefault()
   }
 
